@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang ="en">
+<head>
+<title> The Generic Modder :: Forum</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta The Generic Modder is a website where people can upload their mods for games that others can download and use>
+<style>
+form {flex-direction: column;
+	  flex-wrap: nowrap;}
+input {margin-bottom: 0.5em;}
+textarea {margin-bottom: 0.5em;}
+</style>
+</meta>	
+<link href="final.css" rel="stylesheet">
+<link rel="stylesheet" href="final.css" media="screen">
+<link rel="stylesheet" href="finalprint.css" media="print">
+</head>
+<body>
+<div id="wrapper">
+<header>
+	<h1><a href="final.html">The Generic Modder</a></h1>
+</header>
+<nav>
+	 <ul>
+		<li><a href="final.html">Home</a></li>
+		<li><a href="login.html">Login</a></li>
+		<li><a href="signup.html">Sign up</a></li> 
+		<li><a href="mods.html">Mod list</a></li>
+		<li><a href="forum.html">Forum</a></li>
+	 </ul>
+</nav>
+	<main>
+		<h2> The Generic Modder Forum</h2>
+		<p> Welcome to The Generic Modder forum, please keep the discussions civil and have a good time! To comment, enter your username and email to comment on the forums.</p>
+		<p>Click <a href="post.html">here</a> to make a post.</p>
+		<br>
+		<br>
+		<h2>Posts</h2>
+		<body>
+			<ol>
+			</ol>
+			<!-- Creating javascript code to use for seeing and making new posts on the forum-->
+			<script src="thread.js"></script>
+			<script>
+				/** This shows the existing posts*/
+				let title 
+				console.log(threads);
+				function addThread(thread){
+					var html= `
+						<li class ="row">
+							<a href="/thread.html?id=${thread.id}">
+								<h4 class="title">
+									${thread.title}
+								</h4>
+								<div class="bottom">
+									<p class="timestamp">
+										${new Date(thread.date).toLocaleDateString()}
+									</p>
+									<p class = "comment-count">
+										${thread.comments.length} comments
+									</p>
+								</div>
+							</a>
+						</li>
+					`
+					container.insertAdjacentHTML('beforeend', html);					
+				}
+				var container = document.querySelector('ol');
+				for (let thread of threads){
+					addThread(thread)
+			}
+			</script>
+		</body>
+
+	</main>
+	<footer>
+		Copyright &copy; 2022-2023 The Generic Modder<br>
+		<a href="Jaylon@Essix.com"> Jaylon@Essix.com</a>
+	</footer>
+</div>
+</body>
+</html>

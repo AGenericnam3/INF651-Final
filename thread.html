@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang ="en">
+<head>
+<title> The Generic Modder :: Thread</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta The Generic Modder is a website where people can upload their mods for games that others can download and use>
+</meta>	
+<link href="thread.css" rel="stylesheet">
+<link rel="stylesheet" href="thread.css" media="screen">
+<link rel="stylesheet" href="finalprint.css" media="print">
+</head>
+<body>
+    <div>
+        <h1>Reply</h1>
+        <div class="comments">
+            <div class="comment">
+                <div class="top-comment">
+                    <p class="user">
+                        Generic
+                    </p>
+                    <p class="timestamp">
+                        12-11-2023
+                    </p>
+                </div>
+                <div class="comment-content">
+                    <h2>Comment</h2><br>
+                </div>
+        <textarea></textarea><br>
+        <button>add comment</button>
+    </div>
+    <!-- Creating Javascript code to use for making comments under posts on the forum-->
+    <script src="thread.js"></script>
+    <script> 
+        /** This takes you to the post you want to reply to*/
+        var id = window.location.search.slice(id=1);
+        var thread = threads.find(t => t.id == id);
+        console.log(threads);
+        var header = document.querySelector('.header');
+        var headerHtml = `
+            <h4 class="title">
+			    ${thread.title}
+			</h4>
+			<div class="bottom">
+			    <p class="timestamp">
+					${new Date(thread.date).toLocaleDateString()}
+				</p>
+				<p class = "comment-count">
+					${thread.comments.length} comments
+				</p>
+			</div>
+        `
+        header.insertAdjacentHTML('beforeend', headerHtml);
+        /** This allows you to create comments under a post*/
+        function addComment() {
+            var commentHtml =`
+                <div class="comment">
+                    <div class="top-comment">
+                        <p class="user">
+                            ${comment.author}
+                        </p>
+                        <p class="comment-ts">
+                            ${new(comment.date).toLocaleString()}
+                        </p>
+                    </div>
+                    <div class="comment-content">
+                        ${comment.content}
+                    </div>
+                </div>
+            `
+            comments.insertAdjacentHTML('beforeend', commentHtml);
+        }
+
+        var comment = document.querySelector('.comments');
+        for(let comment of thread.comments){
+            addComment(comment);
+        }
+        /** This allows you to submit the comment you made*/
+        var btn = document.querySelector('button');
+        btn.addEventListener('click',function() {
+            var txt = document.querySelector('textarea');
+            var comment = {
+                content: txt.value,
+                date: Date.now(),
+                author: 'Generic'
+            }
+            addComment(comment);
+            txt.value ='';
+            thread.comments.puch(comment);
+            localStorage.setItem('threads',JSON.stringify(threads));
+        })
+    </script>
+</body>

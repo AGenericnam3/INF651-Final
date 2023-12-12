@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang ="en">
+<head>
+<title> The Generic Modder :: Post</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta The Generic Modder is a website where people can upload their mods for games that others can download and use>
+<style>
+form {flex-direction: column;
+	  flex-wrap: nowrap;}
+input {margin-bottom: 0.5em;}
+textarea {margin-bottom: 0.5em;}
+</style>
+</meta>	
+<link href="final.css" rel="stylesheet">
+<link rel="stylesheet" href="final.css" media="screen">
+<link rel="stylesheet" href="finalprint.css" media="print">
+</head>
+<body>
+<div id="wrapper">
+<header>
+	<h1><a href="final.html">The Generic Modder</a></h1>
+</header>
+<nav>
+	 <ul>
+		<li><a href="final.html">Home</a></li>
+		<li><a href="login.html">Login</a></li>
+		<li><a href="signup.html">Sign up</a></li> 
+		<li><a href="mods.html">Mod list</a></li>
+		<li><a href="forum.html">Forum</a></li>
+	 </ul>
+</nav>
+	<main>
+		<h2> The Generic Modder Forum</h2>
+		<p> Here you can make a post, please keep the discussions civil and have a good time!</p>
+			<br>
+			<br>
+			<br>
+		<p><b> If you have a question about a mod you can also use the forum to talk about it, be sure to put a tag on there the community can help you with you issue.<br> 
+			Here is a table that explains what each of the tags mean </b></p><br>
+		<table>
+			<tr>
+				<th>Tag</th>
+				<th>Description</th>
+				<th>possible causes</th>
+				<th>Difficulty rating</th>
+			</tr>
+			<tr>
+				<td>Tags are abbreviations for the issues and keep clutter to a minimum so that we are able to figure out what exactly you are having trouble with, and help you.</td>
+				<td><span class="text">This is an description of what each tag means.</span></td>
+				<td>These are possible causes that you should troubleshoot before making a post.</td>
+				<td>The difficulty rating on a scale of 1-5 with 1 meaning its a minor problem and can fixed in a few minutes and 5 meaning it will probably take multiple people
+					and some time to figure out.<br>(The moderators and/or the people working on the problem will rate it)</td>
+			</tr>
+			<tr>
+				<td>tech</td>
+				<td><span class="text">a tech tag means you are having problems getting your mod to work and could use a little help, these can vary from some minor mistakes in your code to a core issue that requires massive portions of your code to be redone</span></td>
+				<td>
+					<ul>
+						<li>You mistyped a line of code and it is causing issues</li>
+						<li>You didnt put the files in the right place when making the mod</li>
+						<li>You didnt put the files in the right place when downloading the mod</li>
+					</ul>
+				</td>
+				<td>1-5</td>
+			</tr>
+			<tr>
+				<td>visual</td>
+				<td><span class="text">A visual tag means that you are having visual problems with your game, usually verifying your data or reinstalling the game/mod will fix this issue</span></td>
+				<td>
+					<ul>
+						<li>The mod is conflicting with other files and the game is confused about what should go where</li>
+						<li>The game or mod is messing up and just needs to be reinstalled to ensure all the files are there</li>
+					</ul>
+				</td>
+				<td>1-3</td>
+			</div>
+			</tr>
+			<tr>
+				<td>bug</td>
+				<td><span class="text">A bug tag means that you have found a bug within someones mod and mainly serves to let the developer of the mod know</span></td>
+				<td>
+					<ul>
+						<li>The possible causes vary from game to game</li>
+						<li>In order for the developer to be able to fix it, tell them what you did and how you did it so they can replicate it</li>
+					</ul>
+				</td>
+				<td>1-5</td>
+			</div>
+			</tr>
+		</table>
+				<h2> Do you need help?</h2>
+		<p> Use this form to fill out any issues you are having and our community will do its best to help you</p>
+		<br>
+		<textarea name="myComments" id="myComments" rows="10" cols="100"></textarea><br>
+		<input type="submit" value="Submit">
+	</main>
+	<script src="post.js"></script>
+    <script> 
+        /** This allows you to create a post*/
+        function addPost() {
+            var postHtml =`
+                <p class="user">
+                    ${post.author}
+                </p>
+                <p class="post-ts">
+                    ${new(comment.date).toLocaleString()}
+                </p>
+                <div class="post-content">
+                	${post.content}
+                </div>
+            `
+            posts.insertAdjacentHTML('beforeend', postHtml);
+        }
+
+        var post = document.querySelector('.posts');
+        for(let post of thread.posts){
+            addPost(post);
+        }
+        /** This allows you to submit the post you made*/
+        var btn = document.querySelector('button');
+        btn.addEventListener('click',function() {
+            var txt = document.querySelector('textarea');
+            var post = {
+                content: txt.value,
+                date: Date.now(),
+                author: 'Generic'
+            }
+            addpost(post);
+            txt.value ='';
+        })
+    </script>
+	<footer>
+		Copyright &copy; 2022-2023 The Generic Modder<br>
+		<a href="Jaylon@Essix.com"> Jaylon@Essix.com</a>
+	</footer>
+</div>
+<script post.js></script>
+</body>
+</html>
